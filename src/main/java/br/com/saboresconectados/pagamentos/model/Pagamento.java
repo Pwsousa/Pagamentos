@@ -42,6 +42,11 @@ public class Pagamento {
     private Status status;
 
     @NotNull
+    @Enumerated (EnumType.STRING)
+    private Tipo tipo;
+
+
+    @NotNull
     private Long pedidoId;
 
     @NotNull
