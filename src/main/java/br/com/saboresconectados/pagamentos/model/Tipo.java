@@ -4,5 +4,5 @@ public enum Tipo {
     A_VISTA,
     DEBITO,
     CREDITO,
-    PIX, 
+    PIX
 }

@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import br.com.saboresconectados.pagamentos.dto.PagamentoDTO;
 import br.com.saboresconectados.pagamentos.model.Pagamento;
 import br.com.saboresconectados.pagamentos.model.Status;
+import br.com.saboresconectados.pagamentos.model.Tipo;
 import br.com.saboresconectados.pagamentos.repository.PagamentoRepository;
 import jakarta.persistence.EntityNotFoundException;
 
@@ -37,6 +38,7 @@ public class PagamentoService {
     public PagamentoDTO criarPagamento(PagamentoDTO dto){
         Pagamento pagamento = modelmapp.map(dto, Pagamento.class);
         pagamento.setStatus(Status.PENDENTE);
+        pagamento.setTipo(Tipo.A_VISTA);
         repository.save(pagamento);
 
         return modelmapp.map(pagamento, PagamentoDTO.class);
@@ -44,7 +46,7 @@ public class PagamentoService {
 
     public PagamentoDTO atualizarPagamento(Long id, PagamentoDTO dto){
         Pagamento pagamento = modelmapp.map(dto,Pagamento.class);
-        pagamento.setID(id);
+        pagamento.setId(id);
         pagamento = repository.save(pagamento);
         return modelmapp.map(pagamento, PagamentoDTO.class);
     }

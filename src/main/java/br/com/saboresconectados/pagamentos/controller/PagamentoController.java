@@ -49,7 +49,7 @@ public class PagamentoController {
                                                  PagamentoDTO dto,
                                                  UriComponentsBuilder uriBuilder) {
         PagamentoDTO pagamento = service.criarPagamento(dto);
-        URI endereco = uriBuilder.path("/pagamentos/{id}").buildAndExpand(pagamento).toUri();
+        URI endereco = uriBuilder.path("/pagamentos/{id}").buildAndExpand(pagamento.getID()).toUri();
         return ResponseEntity.created(endereco).body(pagamento);
     }
     
