@@ -17,6 +17,5 @@ public class PagamentoDTO {
     private Status status;
     private Tipo tipo;
     private Long pedidoId;
-    private long formaPagamento;
     
 }

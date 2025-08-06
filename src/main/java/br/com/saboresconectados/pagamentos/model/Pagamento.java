@@ -48,7 +48,4 @@ public class Pagamento {
 
     @NotNull
     private Long pedidoId;
-
-    @NotNull
-    private long formaPagamento;
 }
