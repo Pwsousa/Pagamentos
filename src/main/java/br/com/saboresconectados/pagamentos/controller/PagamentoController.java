@@ -49,11 +49,11 @@ public class PagamentoController {
                                                  PagamentoDTO dto,
                                                  UriComponentsBuilder uriBuilder) {
         PagamentoDTO pagamento = service.criarPagamento(dto);
-        URI endereco = uriBuilder.path("/pagamentos/{id}").buildAndExpand(pagamento).toUri();
+        URI endereco = uriBuilder.path("/pagamentos/{id}").buildAndExpand(pagamento.getID()).toUri();
         return ResponseEntity.created(endereco).body(pagamento);
     }
     
-    @PutMapping()
+    @PutMapping("/{id}")
     public ResponseEntity<PagamentoDTO> atualizar(@PathVariable @NotNull Long id, 
                                                   @RequestBody @Valid PagamentoDTO dto){
 

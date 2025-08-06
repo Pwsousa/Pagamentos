@@ -19,15 +19,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity 
-@Table(name = "Pagamentos")
+@Table(name = "pagamentos")
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Pagamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
 
     @NotNull
     @Positive
@@ -45,10 +46,6 @@ public class Pagamento {
     @Enumerated (EnumType.STRING)
     private Tipo tipo;
 
-
     @NotNull
     private Long pedidoId;
-
-    @NotNull
-    private long formaPagamento;
 }
